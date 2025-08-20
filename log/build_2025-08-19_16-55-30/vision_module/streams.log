@@ -1,0 +1,35 @@
+[0.580s] Invoking command in '/home/jingtai/henrycode/cas_ws/src/vision_module': PYTHONPATH=/home/jingtai/henrycode/build/vision_module/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/vision_module build --build-base /home/jingtai/henrycode/build/vision_module/build install --record /home/jingtai/henrycode/build/vision_module/install.log --single-version-externally-managed install_data
+[0.740s] running egg_info
+[0.741s] writing ../../../build/vision_module/vision_module.egg-info/PKG-INFO
+[0.742s] writing dependency_links to ../../../build/vision_module/vision_module.egg-info/dependency_links.txt
+[0.742s] writing entry points to ../../../build/vision_module/vision_module.egg-info/entry_points.txt
+[0.742s] writing requirements to ../../../build/vision_module/vision_module.egg-info/requires.txt
+[0.743s] writing top-level names to ../../../build/vision_module/vision_module.egg-info/top_level.txt
+[0.744s] reading manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+[0.745s] writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+[0.746s] running build
+[0.746s] running build_py
+[0.747s] copying vision_module/dectionL_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[0.747s] copying vision_module/lshape_cmd_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[0.751s] running install
+[0.751s] running install_lib
+[0.751s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/dectionL_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[0.752s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/lshape_cmd_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[0.753s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/dectionL_node.py to dectionL_node.cpython-310.pyc
+[0.756s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/lshape_cmd_node.py to lshape_cmd_node.cpython-310.pyc
+[0.757s] running install_data
+[0.760s] running install_egg_info
+[0.761s] removing '/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info' (and everything under it)
+[0.763s] Copying ../../../build/vision_module/vision_module.egg-info to /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info
+[0.764s] running install_scripts
+[0.779s] Installing dectionL_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.779s] Installing detection_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.779s] Installing icp_fitter script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.779s] Installing l_shape_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.779s] Installing realsense_capture_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.780s] Installing realsense_rough script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.780s] Installing realsenselib script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.780s] Installing roi_preview_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.780s] Installing screw_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[0.780s] writing list of installed files to '/home/jingtai/henrycode/build/vision_module/install.log'
+[0.798s] Invoked command in '/home/jingtai/henrycode/cas_ws/src/vision_module' returned '0': PYTHONPATH=/home/jingtai/henrycode/build/vision_module/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/vision_module build --build-base /home/jingtai/henrycode/build/vision_module/build install --record /home/jingtai/henrycode/build/vision_module/install.log --single-version-externally-managed install_data

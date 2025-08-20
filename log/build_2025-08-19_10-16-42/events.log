@@ -1,0 +1,167 @@
+[0.000000] (-) TimerEvent: {}
+[0.000184] (-) JobUnselected: {'identifier': 'common_msgs'}
+[0.000210] (-) JobUnselected: {'identifier': 'io_module'}
+[0.000224] (-) JobUnselected: {'identifier': 'model_module'}
+[0.000235] (-) JobUnselected: {'identifier': 'motion_control_module'}
+[0.000248] (-) JobUnselected: {'identifier': 'motor_control_module'}
+[0.000259] (-) JobUnselected: {'identifier': 'object_frame_compensation_package'}
+[0.000270] (-) JobUnselected: {'identifier': 'state_machine_module'}
+[0.000282] (-) JobUnselected: {'identifier': 'task_module'}
+[0.000293] (-) JobUnselected: {'identifier': 'ui_app'}
+[0.000304] (-) JobUnselected: {'identifier': 'ui_module'}
+[0.000316] (-) JobUnselected: {'identifier': 'uros_interface'}
+[0.000329] (vision_module) JobQueued: {'identifier': 'vision_module', 'dependencies': OrderedDict()}
+[0.000344] (vision_module) JobStarted: {'identifier': 'vision_module'}
+[0.098931] (-) TimerEvent: {}
+[0.199254] (-) TimerEvent: {}
+[0.300455] (-) TimerEvent: {}
+[0.400956] (-) TimerEvent: {}
+[0.501612] (-) TimerEvent: {}
+[0.602688] (-) TimerEvent: {}
+[0.707229] (-) TimerEvent: {}
+[0.807647] (-) TimerEvent: {}
+[0.908231] (-) TimerEvent: {}
+[1.008556] (-) TimerEvent: {}
+[1.078320] (vision_module) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/vision_module', 'build', '--build-base', '/home/jingtai/henrycode/build/vision_module/build', 'install', '--record', '/home/jingtai/henrycode/build/vision_module/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/jingtai/henrycode/cas_ws/src/vision_module', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'jingtai', 'LC_TIME': 'lzh_TW', 'XDG_SESSION_TYPE': 'wayland', 'GIT_ASKPASS': '/usr/share/code/resources/app/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/jingtai', 'CHROME_DESKTOP': 'code.desktop', 'TERM_PROGRAM_VERSION': '1.102.1', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/code.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'VSCODE_GIT_ASKPASS_MAIN': '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'lzh_TW', 'VSCODE_GIT_ASKPASS_NODE': '/usr/share/code/code', 'MANAGERPID': '1285', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'SYSTEMD_EXEC_PID': '1441', 'BUNDLED_DEBUGPY_PATH': '/home/jingtai/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/libs/debugpy', 'IM_CONFIG_CHECK_ENV': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '2459', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/jingtai/rosalign_ws/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'fcitx', 'LOGNAME': 'jingtai', 'JOURNAL_STREAM': '8:9934', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'jingtai', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/jingtai/.local/bin:/opt/ros/humble/bin:/home/jingtai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/jingtai/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts', 'SESSION_MANAGER': 'local/jingtai-VirtualBox:@/tmp/.ICE-unix/1410,unix/jingtai-VirtualBox:/tmp/.ICE-unix/1410', 'INVOCATION_ID': '4a4898c373f94c9cab95752fe8c20c6a', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'lzh_TW', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'GDK_BACKEND': 'x11', 'DISPLAY': ':0', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/jingtai/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-0811e96f81466889.txt', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'Unity', 'LC_TELEPHONE': 'lzh_TW', 'XMODIFIERS': '@im=fcitx', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.653VB3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-862b9853e6.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/jingtai/rosalign_ws/install/fsm_pkg:/home/jingtai/rosalign_ws/install/detection_pkg:/home/jingtai/rosalign_ws/install/calibration_pkg:/opt/ros/humble', 'ORIGINAL_XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'SHELL': '/bin/bash', 'LC_NAME': 'lzh_TW', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'lzh_TW', 'GJS_DEBUG_OUTPUT': 'stderr', 'LC_IDENTIFICATION': 'lzh_TW', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'fcitx', 'PWD': '/home/jingtai/henrycode/build/vision_module', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CLUTTER_IM_MODULE': 'xim', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jingtai/henrycode/build/vision_module/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages:/home/jingtai/rosalign_ws/install/fsm_pkg/lib/python3.10/site-packages:/home/jingtai/rosalign_ws/install/detection_pkg/lib/python3.10/site-packages:/home/jingtai/rosalign_ws/install/calibration_pkg/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'lzh_TW', 'LC_PAPER': 'lzh_TW', 'COLCON': '1'}, 'shell': False}
+[1.108677] (-) TimerEvent: {}
+[1.211721] (-) TimerEvent: {}
+[1.258269] (vision_module) StdoutLine: {'line': b'running egg_info\n'}
+[1.258547] (vision_module) StdoutLine: {'line': b'creating ../../../build/vision_module/vision_module.egg-info\n'}
+[1.258902] (vision_module) StdoutLine: {'line': b'writing ../../../build/vision_module/vision_module.egg-info/PKG-INFO\n'}
+[1.259034] (vision_module) StdoutLine: {'line': b'writing dependency_links to ../../../build/vision_module/vision_module.egg-info/dependency_links.txt\n'}
+[1.259569] (vision_module) StdoutLine: {'line': b'writing entry points to ../../../build/vision_module/vision_module.egg-info/entry_points.txt\n'}
+[1.259635] (vision_module) StdoutLine: {'line': b'writing requirements to ../../../build/vision_module/vision_module.egg-info/requires.txt\n'}
+[1.259670] (vision_module) StdoutLine: {'line': b'writing top-level names to ../../../build/vision_module/vision_module.egg-info/top_level.txt\n'}
+[1.259695] (vision_module) StdoutLine: {'line': b"writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'\n"}
+[1.260891] (vision_module) StdoutLine: {'line': b"reading manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'\n"}
+[1.261425] (vision_module) StdoutLine: {'line': b"writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'\n"}
+[1.261641] (vision_module) StdoutLine: {'line': b'running build\n'}
+[1.261712] (vision_module) StdoutLine: {'line': b'running build_py\n'}
+[1.261807] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build\n'}
+[1.261892] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build/lib\n'}
+[1.261951] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.261980] (vision_module) StdoutLine: {'line': b'copying vision_module/dectionL_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.262777] (vision_module) StdoutLine: {'line': b'copying vision_module/realsense_capture_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.263887] (vision_module) StdoutLine: {'line': b'copying vision_module/feature.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.264452] (vision_module) StdoutLine: {'line': b'copying vision_module/detection_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.264851] (vision_module) StdoutLine: {'line': b'copying vision_module/roi_preview_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.265482] (vision_module) StdoutLine: {'line': b'copying vision_module/icp_fitter.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.266440] (vision_module) StdoutLine: {'line': b'copying vision_module/__init__.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.266506] (vision_module) StdoutLine: {'line': b'copying vision_module/l_shape_detector.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.267161] (vision_module) StdoutLine: {'line': b'copying vision_module/write.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.267561] (vision_module) StdoutLine: {'line': b'copying vision_module/screw_detector.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module\n'}
+[1.269033] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template\n'}
+[1.269104] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template\n'}
+[1.269779] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template\n'}
+[1.270481] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template\n'}
+[1.271163] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template\n'}
+[1.272243] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.272316] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.272792] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.273633] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.274536] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.275050] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.275688] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.276438] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.277557] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape\n'}
+[1.278195] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape\n'}
+[1.278333] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape\n'}
+[1.279379] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape\n'}
+[1.280406] (vision_module) StdoutLine: {'line': b'running install\n'}
+[1.280622] (vision_module) StdoutLine: {'line': b'running install_lib\n'}
+[1.281453] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.281644] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/dectionL_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.281709] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/realsense_capture_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.281759] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/feature.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.281864] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/detection_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.282075] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/roi_preview_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.282252] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape\n'}
+[1.282438] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape\n'}
+[1.282679] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape\n'}
+[1.282749] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/icp_fitter.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.282794] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/__init__.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.282828] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template\n'}
+[1.282862] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template\n'}
+[1.282934] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template\n'}
+[1.283088] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template\n'}
+[1.283199] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template\n'}
+[1.283271] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/l_shape_detector.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.283329] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283383] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283433] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283482] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283605] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283669] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283720] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283770] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.283818] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape\n'}
+[1.284659] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/write.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.284798] (vision_module) StdoutLine: {'line': b'copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/screw_detector.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module\n'}
+[1.284833] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/dectionL_node.py to dectionL_node.cpython-310.pyc\n'}
+[1.285790] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/realsense_capture_node.py to realsense_capture_node.cpython-310.pyc\n'}
+[1.286665] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/feature.py to feature.cpython-310.pyc\n'}
+[1.287128] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/detection_node.py to detection_node.cpython-310.pyc\n'}
+[1.288795] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/roi_preview_node.py to roi_preview_node.cpython-310.pyc\n'}
+[1.289454] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/icp_fitter.py to icp_fitter.cpython-310.pyc\n'}
+[1.289999] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/__init__.py to __init__.cpython-310.pyc\n'}
+[1.290108] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/l_shape_detector.py to l_shape_detector.cpython-310.pyc\n'}
+[1.290557] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/write.py to write.cpython-310.pyc\n'}
+[1.290855] (vision_module) StdoutLine: {'line': b'byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/screw_detector.py to screw_detector.cpython-310.pyc\n'}
+[1.291372] (vision_module) StdoutLine: {'line': b'running install_data\n'}
+[1.291435] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/ament_index\n'}
+[1.291463] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index\n'}
+[1.291491] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index/packages\n'}
+[1.291565] (vision_module) StdoutLine: {'line': b'copying resource/vision_module -> /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index/packages\n'}
+[1.291614] (vision_module) StdoutLine: {'line': b'copying package.xml -> /home/jingtai/henrycode/install/vision_module/share/vision_module\n'}
+[1.291712] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template\n'}
+[1.291752] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template\n'}
+[1.291830] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template\n'}
+[1.291898] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template\n'}
+[1.291960] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template\n'}
+[1.292040] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292105] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292179] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292257] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292288] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292311] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292351] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292376] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292398] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape\n'}
+[1.292420] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape\n'}
+[1.292441] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape\n'}
+[1.292582] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape\n'}
+[1.292661] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.292688] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template\n'}
+[1.292712] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template\n'}
+[1.292735] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template\n'}
+[1.292757] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template\n'}
+[1.292778] (vision_module) StdoutLine: {'line': b'copying vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template\n'}
+[1.292849] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.292915] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.292994] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293068] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293358] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293391] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293414] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293437] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293458] (vision_module) StdoutLine: {'line': b'copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape\n'}
+[1.293479] (vision_module) StdoutLine: {'line': b'creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape\n'}
+[1.293505] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape\n'}
+[1.293550] (vision_module) StdoutLine: {'line': b'copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape\n'}
+[1.293575] (vision_module) StdoutLine: {'line': b'running install_egg_info\n'}
+[1.294645] (vision_module) StdoutLine: {'line': b'Copying ../../../build/vision_module/vision_module.egg-info to /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info\n'}
+[1.295114] (vision_module) StdoutLine: {'line': b'running install_scripts\n'}
+[1.312629] (-) TimerEvent: {}
+[1.322786] (vision_module) StdoutLine: {'line': b'Installing dectionL_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323153] (vision_module) StdoutLine: {'line': b'Installing detection_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323260] (vision_module) StdoutLine: {'line': b'Installing icp_fitter script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323367] (vision_module) StdoutLine: {'line': b'Installing l_shape_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323446] (vision_module) StdoutLine: {'line': b'Installing realsense_capture_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323614] (vision_module) StdoutLine: {'line': b'Installing realsense_rough script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323734] (vision_module) StdoutLine: {'line': b'Installing realsenselib script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323815] (vision_module) StdoutLine: {'line': b'Installing roi_preview_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323897] (vision_module) StdoutLine: {'line': b'Installing screw_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module\n'}
+[1.323974] (vision_module) StdoutLine: {'line': b"writing list of installed files to '/home/jingtai/henrycode/build/vision_module/install.log'\n"}
+[1.341566] (vision_module) CommandEnded: {'returncode': 0}
+[1.373198] (vision_module) JobEnded: {'identifier': 'vision_module', 'rc': 0}
+[1.373687] (-) EventReactorShutdown: {}

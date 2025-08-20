@@ -1,0 +1,30 @@
+running egg_info
+writing ../../../build/vision_module/vision_module.egg-info/PKG-INFO
+writing dependency_links to ../../../build/vision_module/vision_module.egg-info/dependency_links.txt
+writing entry points to ../../../build/vision_module/vision_module.egg-info/entry_points.txt
+writing requirements to ../../../build/vision_module/vision_module.egg-info/requires.txt
+writing top-level names to ../../../build/vision_module/vision_module.egg-info/top_level.txt
+reading manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+running build
+running build_py
+copying vision_module/dectionL_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+running install
+running install_lib
+copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/dectionL_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/dectionL_node.py to dectionL_node.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../../build/vision_module/vision_module.egg-info to /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info
+running install_scripts
+Installing dectionL_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing detection_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing icp_fitter script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing l_shape_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing realsense_capture_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing realsense_rough script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing realsenselib script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing roi_preview_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+Installing screw_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+writing list of installed files to '/home/jingtai/henrycode/build/vision_module/install.log'

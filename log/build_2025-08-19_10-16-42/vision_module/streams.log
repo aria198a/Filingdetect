@@ -1,0 +1,138 @@
+[1.079s] Invoking command in '/home/jingtai/henrycode/cas_ws/src/vision_module': PYTHONPATH=/home/jingtai/henrycode/build/vision_module/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/vision_module build --build-base /home/jingtai/henrycode/build/vision_module/build install --record /home/jingtai/henrycode/build/vision_module/install.log --single-version-externally-managed install_data
+[1.258s] running egg_info
+[1.258s] creating ../../../build/vision_module/vision_module.egg-info
+[1.259s] writing ../../../build/vision_module/vision_module.egg-info/PKG-INFO
+[1.259s] writing dependency_links to ../../../build/vision_module/vision_module.egg-info/dependency_links.txt
+[1.259s] writing entry points to ../../../build/vision_module/vision_module.egg-info/entry_points.txt
+[1.259s] writing requirements to ../../../build/vision_module/vision_module.egg-info/requires.txt
+[1.259s] writing top-level names to ../../../build/vision_module/vision_module.egg-info/top_level.txt
+[1.259s] writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+[1.261s] reading manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+[1.261s] writing manifest file '../../../build/vision_module/vision_module.egg-info/SOURCES.txt'
+[1.261s] running build
+[1.261s] running build_py
+[1.262s] creating /home/jingtai/henrycode/build/vision_module/build
+[1.262s] creating /home/jingtai/henrycode/build/vision_module/build/lib
+[1.262s] creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.262s] copying vision_module/dectionL_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.262s] copying vision_module/realsense_capture_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.264s] copying vision_module/feature.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.264s] copying vision_module/detection_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.265s] copying vision_module/roi_preview_node.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.265s] copying vision_module/icp_fitter.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.266s] copying vision_module/__init__.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.266s] copying vision_module/l_shape_detector.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.267s] copying vision_module/write.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.267s] copying vision_module/screw_detector.py -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module
+[1.269s] creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template
+[1.269s] copying vision_module/template/template1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template
+[1.269s] copying vision_module/template/template3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template
+[1.270s] copying vision_module/template/template0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template
+[1.271s] copying vision_module/template/template2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template
+[1.272s] creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.272s] copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.273s] copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.273s] copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.274s] copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.275s] copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.275s] copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.276s] copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.277s] copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape
+[1.278s] creating /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape
+[1.278s] copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape
+[1.279s] copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape
+[1.280s] running install
+[1.280s] running install_lib
+[1.281s] creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.281s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/dectionL_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.281s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/realsense_capture_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.281s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/feature.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/detection_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/roi_preview_node.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.282s] creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template_l_shape
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/icp_fitter.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.282s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/__init__.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.283s] creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/l_shape_detector.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.283s] creating /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.283s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/template2_shape
+[1.284s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/write.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.284s] copying /home/jingtai/henrycode/build/vision_module/build/lib/vision_module/screw_detector.py -> /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module
+[1.285s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/dectionL_node.py to dectionL_node.cpython-310.pyc
+[1.285s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/realsense_capture_node.py to realsense_capture_node.cpython-310.pyc
+[1.286s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/feature.py to feature.cpython-310.pyc
+[1.287s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/detection_node.py to detection_node.cpython-310.pyc
+[1.288s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/roi_preview_node.py to roi_preview_node.cpython-310.pyc
+[1.289s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/icp_fitter.py to icp_fitter.cpython-310.pyc
+[1.290s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/__init__.py to __init__.cpython-310.pyc
+[1.290s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/l_shape_detector.py to l_shape_detector.cpython-310.pyc
+[1.290s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/write.py to write.cpython-310.pyc
+[1.291s] byte-compiling /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module/screw_detector.py to screw_detector.cpython-310.pyc
+[1.291s] running install_data
+[1.291s] creating /home/jingtai/henrycode/install/vision_module/share/ament_index
+[1.291s] creating /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index
+[1.291s] creating /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index/packages
+[1.291s] copying resource/vision_module -> /home/jingtai/henrycode/install/vision_module/share/ament_index/resource_index/packages
+[1.291s] copying package.xml -> /home/jingtai/henrycode/install/vision_module/share/vision_module
+[1.291s] creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template
+[1.291s] copying vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template
+[1.292s] copying vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template
+[1.292s] copying vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template
+[1.292s] copying vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template
+[1.292s] creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template2_shape
+[1.292s] creating /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape
+[1.292s] copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape
+[1.292s] copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/share/vision_module/template_l_shape
+[1.292s] creating /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.292s] creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template
+[1.292s] copying vision_module/template/template1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template
+[1.292s] copying vision_module/template/template3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template
+[1.292s] copying vision_module/template/template0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template
+[1.292s] copying vision_module/template/template2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template
+[1.293s] creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/feature_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/feature_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/l_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/feature_shape_2.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/feature_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/l_shape_3.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] copying vision_module/template2_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template2_shape
+[1.293s] creating /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape
+[1.293s] copying vision_module/template_l_shape/l_shape_0.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape
+[1.293s] copying vision_module/template_l_shape/l_shape_1.png -> /home/jingtai/henrycode/install/vision_module/lib/vision_module/template_l_shape
+[1.293s] running install_egg_info
+[1.294s] Copying ../../../build/vision_module/vision_module.egg-info to /home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages/vision_module-0.0.0-py3.10.egg-info
+[1.295s] running install_scripts
+[1.323s] Installing dectionL_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing detection_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing icp_fitter script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing l_shape_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing realsense_capture_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing realsense_rough script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.323s] Installing realsenselib script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.324s] Installing roi_preview_node script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.324s] Installing screw_detector script to /home/jingtai/henrycode/install/vision_module/lib/vision_module
+[1.324s] writing list of installed files to '/home/jingtai/henrycode/build/vision_module/install.log'
+[1.341s] Invoked command in '/home/jingtai/henrycode/cas_ws/src/vision_module' returned '0': PYTHONPATH=/home/jingtai/henrycode/build/vision_module/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jingtai/henrycode/install/vision_module/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/vision_module build --build-base /home/jingtai/henrycode/build/vision_module/build install --record /home/jingtai/henrycode/build/vision_module/install.log --single-version-externally-managed install_data

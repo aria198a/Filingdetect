@@ -1,0 +1,11 @@
+[console_scripts]
+dectionL_node = vision_module.dectionL_node:main
+detection_node = vision_module.detection_node:main
+icp_fitter = vision_module.icp_fitter:main
+l_shape_detector = vision_module.l_shape_detector:main
+realsense_capture_node = vision_module.realsense_capture_node:main
+realsense_rough = vision_module.realsense_rough:main
+realsenselib = vision_module.realsenselib:main
+roi_preview_node = vision_module.roi_preview_node:main
+screw_detector = vision_module.screw_detector:main
+
