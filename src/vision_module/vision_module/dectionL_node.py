@@ -122,10 +122,21 @@ class LShapeDetectorNode(Node):
         self.declare_parameter('log_every_n', 10)
         self.declare_parameter('pub_every_n', 1)
 
-        # Bootstrapping (auto request feature only when template missing)
+        # Bootstrapping (auto request feature only when template missing / invalid)
         self.declare_parameter('auto_bootstrap', True)
-        self.declare_parameter('bootstrap_period_sec', 2.0)
-        self.declare_parameter('auto_retry_on_miss', False)
+        self.declare_parameter('bootstrap_period_sec', 2.0)     # per-side rate limit
+        self.declare_parameter('bootstrap_on_invalid', True)     # 連續越界是否觸發外部偵測
+
+        # 2D ROI guard（畫素）
+        self.declare_parameter('roi_guard_enable', True)
+        self.declare_parameter('roi_guard_margin_px', 80)
+
+        # 幾何守門（以 R→L 基線長度為基準）
+        self.declare_parameter('left_min_s_ratio', 0.20)
+        self.declare_parameter('left_max_s_ratio', 1.80)
+        self.declare_parameter('screw_line_dist_min_m', 0.01)
+        self.declare_parameter('screw_line_dist_max_m', 0.20)
+        self.declare_parameter('out_invalid_limit', 3)  # 連續 N 幀越界才觸發 re-detect
 
         # Pose smoothing
         self.declare_parameter('max_angle_step_deg', 3.0)
@@ -155,21 +166,30 @@ class LShapeDetectorNode(Node):
         self.miss_limit = int(self.get_parameter('miss_limit').value)
         self.log_every_n = int(self.get_parameter('log_every_n').value)
         self.pub_every_n = int(self.get_parameter('pub_every_n').value)
+
         self.auto_bootstrap = bool(self.get_parameter('auto_bootstrap').value)
         self.bootstrap_period = float(self.get_parameter('bootstrap_period_sec').value)
-        self.auto_retry_on_miss = bool(self.get_parameter('auto_retry_on_miss').value)
+        self.bootstrap_on_invalid = bool(self.get_parameter('bootstrap_on_invalid').value)
+
+        self.roi_guard_enable = bool(self.get_parameter('roi_guard_enable').value)
+        self.roi_guard_margin_px = float(self.get_parameter('roi_guard_margin_px').value)
+        self.left_min_s_ratio = float(self.get_parameter('left_min_s_ratio').value)
+        self.left_max_s_ratio = float(self.get_parameter('left_max_s_ratio').value)
+        self.screw_line_dist_min_m = float(self.get_parameter('screw_line_dist_min_m').value)
+        self.screw_line_dist_max_m = float(self.get_parameter('screw_line_dist_max_m').value)
+        self.out_invalid_limit = int(self.get_parameter('out_invalid_limit').value)
+
         self.max_angle_step_deg = float(self.get_parameter('max_angle_step_deg').value)
         self.y_blend_beta = float(self.get_parameter('y_blend_beta').value)
         self.use_depth_filters = bool(self.get_parameter('use_depth_filters').value)
         self.autoload_templates = bool(self.get_parameter('autoload_templates').value)
-
 
         # ----- ROS I/O -----
         self.info_pub = self.create_publisher(String, '/lshape_corner_info', 10)
         self.tf_pub   = self.create_publisher(String, '/lshape_tf', 10)
         self.cmd_sub  = self.create_subscription(String, '/lshape/cmd', self.on_cmd, 10)
 
-        # External bootstrap commands (adjust topic if needed)
+        # external bootstrap node/topic（如需改名請同步調整）
         self.bootstrap_pub = self.create_publisher(String, '/lshape_cmd_node', 10)
         self._last_boot_ts = {'left': 0.0, 'right': 0.0, 'screw': 0.0}
 
@@ -220,28 +240,28 @@ class LShapeDetectorNode(Node):
             'screw': self._new_side_state()
         }
 
-        # ★ Auto-load templates on startup (if any)
+        # Auto-load PNG templates on startup
         if self.autoload_templates:
             any_loaded = False
             for side in ('left', 'right', 'screw'):
                 ok = self.load_template_from_disk(side)
                 any_loaded = any_loaded or ok
             if any_loaded:
-                self.get_logger().info("📂 Startup: loaded existing templates from disk. (Missing sides stay idle)")
+                self.get_logger().info("📂 Startup: loaded existing PNG templates (missing sides stay idle).")
             else:
-                self.get_logger().info("⚠️ No template found on disk. Use /lshape/cmd capture_* (or external bootstrap) to build.")
+                self.get_logger().info("⚠️ No PNG templates on disk. Use /lshape/cmd capture_* or external bootstrap.")
 
     def _new_side_state(self):
         return dict(
             tmpl_gray=None, tmpl_edge=None, tmpl_corner=None,
             prev_top_left=None, miss_count=0, last_xyz=None,
-            last_ok=False, last_uv=None
+            last_ok=False, last_uv=None, last_score=0.0,
+            anchor_uv=None, out_count=0
         )
 
     # -------------------- Template I/O --------------------
     def _tmpl_png_paths(self, side):
         return (f"template_{side}_gray.png", f"template_{side}_edge.png")
-
 
     def load_template_from_disk(self, side):
         """PNG only: template_{side}_gray.png + template_{side}_edge.png"""
@@ -267,26 +287,26 @@ class LShapeDetectorNode(Node):
             st['last_xyz'] = None
             st['last_ok'] = False
             st['last_uv'] = None
+            st['anchor_uv'] = None   # 從磁碟載入時，等第一次高分匹配再鎖定
+            st['out_count'] = 0
+
             self.get_logger().info(
-                f"📂 Loaded {side.upper()} from PNG "
-                f"(corner=({st['tmpl_corner'][0]:.2f},{st['tmpl_corner'][1]:.2f}))"
+                f"📂 Loaded {side.upper()} PNG (corner=({st['tmpl_corner'][0]:.2f},{st['tmpl_corner'][1]:.2f}))"
             )
             return True
         except Exception as e:
             self.get_logger().warning(f"Load PNG template failed {side}: {e}")
             return False
 
-
     def delete_template_files(self, side):
-        """Remove only PNG templates on disk."""
-        for p in self._tmpl_png_paths(side):  
+        """Remove side PNGs on disk."""
+        pg, pe = self._tmpl_png_paths(side)
+        for p in (pg, pe):
             try:
                 if os.path.exists(p):
                     os.remove(p)
-                    self.get_logger().info(f"🗑️ Deleted {p}")
-            except Exception as e:
-                self.get_logger().warning(f"Failed to delete {p}: {e}")
-
+            except Exception:
+                pass
 
     # -------------------- Commands --------------------
     def on_cmd(self, msg: String):
@@ -302,14 +322,12 @@ class LShapeDetectorNode(Node):
         elif data in ('reset_left','reset_right','reset_screw'):
             side = 'left' if 'left' in data else ('right' if 'right' in data else 'screw')
             self.clear_template(side)
-            # 同步刪磁碟模板
             self.delete_template_files(side)
-            self.get_logger().info(f"🗑️ Deleted {side.upper()} template files from disk.")
+            self.get_logger().info(f"🗑️ Deleted {side.upper()} PNG templates from disk.")
         elif data == 'save':
             self._save_flag = True
         elif data == 'quit':
             self.request_quit()
-        # Ignore any external 'auto_detect_*' strings here to avoid loops.
 
     def request_quit(self):
         if self._cleaned:
@@ -330,15 +348,16 @@ class LShapeDetectorNode(Node):
         st.update(dict(
             tmpl_gray=None, tmpl_edge=None, tmpl_corner=None,
             prev_top_left=None, miss_count=0, last_xyz=None,
-            last_ok=False, last_uv=None
+            last_ok=False, last_uv=None, last_score=0.0,
+            anchor_uv=None, out_count=0
         ))
         self.get_logger().info(f"🧹 Cleared {side.upper()} template (RAM).")
 
     def capture_roi_as_template(self, color_bgr, side):
-        # 暫停主循環，避免 ROI 視窗期間的資源競爭/錯誤
+        # 暫停主循環，避免 ROI 選取時卡住
         self._pause_processing = True
         try:
-            title = f"Select {side.upper()} ROI (Enter/ESC)"
+            title = f"Select {side. upper()} ROI (Enter/ESC)"
             box = cv2.selectROI(title, color_bgr, fromCenter=False, showCrosshair=True)
             cv2.destroyWindow(title)
             x,y,w,h = [int(v) for v in box]
@@ -358,7 +377,7 @@ class LShapeDetectorNode(Node):
                 corners = np.array([[float(u0), float(v0)]], dtype=np.float32).reshape(-1,1,2)
                 try:
                     cv2.cornerSubPix(gray, corners, (7,7), (-1,-1),
-                                    (cv2.TERM_CRITERIA_EPS+cv2.TERM_CRITERIA_MAX_ITER, 30, 1e-2))
+                                     (cv2.TERM_CRITERIA_EPS+cv2.TERM_CRITERIA_MAX_ITER, 30, 1e-2))
                     u_refined = float(corners[0,0,0]); v_refined = float(corners[0,0,1])
                 except Exception:
                     u_refined, v_refined = float(u0), float(v0)
@@ -372,18 +391,16 @@ class LShapeDetectorNode(Node):
             st['last_xyz'] = None
             st['last_ok'] = False
             st['last_uv'] = None
+            # 直接以目前角點/中心「全域像素座標」當錨點
+            st['anchor_uv'] = (x + float(u_refined), y + float(v_refined))
+            st['out_count'] = 0
 
-            # ✅ 只寫 PNG，完全不呼叫 save_template_to_disk
-            cv2.imwrite(f'template_{side}_gray.png', gray)
-            cv2.imwrite(f'template_{side}_edge.png', edge)
-
-            self.get_logger().info(
-                f"🎯 {side.upper()} template: rect=({x},{y},{w},{h}) "
-                f"corner=({u_refined:.2f},{v_refined:.2f})  (PNG saved)"
-            )
+            pg, pe = self._tmpl_png_paths(side)
+            cv2.imwrite(pg, gray)
+            cv2.imwrite(pe, edge)
+            self.get_logger().info(f"🎯 {side.upper()} template: rect=({x},{y},{w},{h}) corner=({u_refined:.2f},{v_refined:.2f})")
         finally:
             self._pause_processing = False
-
 
     # -------------------- Utils --------------------
     def update_fps(self):
@@ -399,7 +416,6 @@ class LShapeDetectorNode(Node):
         self.cur_fps = self.fps_ema
 
     def depth_median(self, depth_frame, u, v, win=7):
-        # 確保是 depth_frame；非則嘗試轉
         try:
             _ = depth_frame.get_distance(0, 0)
         except Exception:
@@ -502,10 +518,51 @@ class LShapeDetectorNode(Node):
         self.bootstrap_pub.publish(String(data=cmd))
         self.get_logger().info(f"📣 Requesting external feature detect: {cmd}")
 
+    # -------------------- Validation & reporting --------------------
+    def validate_frame(self, vL, vR, vS):
+        issues = []
+        if vL is None or vR is None or vS is None:
+            issues.append('missing_points')
+            return False, issues
+
+        x = vL - vR
+        nx = float(np.linalg.norm(x))
+        if nx <= 1e-6:
+            issues.append('baseline_zero')
+            return False, issues
+        xhat = x / nx
+
+        # LEFT 在 X 軸上的投影需落在比例範圍
+        sL = float(np.dot(vL - vR, xhat))
+        if not (self.left_min_s_ratio * nx <= sL <= self.left_max_s_ratio * nx):
+            issues.append('left_out_of_x_range')
+
+        # SCREW 與 X 軸的垂距需落在走廊
+        sS = float(np.dot(vS - vR, xhat))
+        dS = float(np.linalg.norm((vS - vR) - sS * xhat))
+        if not (self.screw_line_dist_min_m <= dS <= self.screw_line_dist_max_m):
+            issues.append('screw_out_of_corridor')
+
+        return (len(issues) == 0), issues
+
+    def report_invalid_and_maybe_bootstrap(self, issues):
+        msg = "[INVALID] reasons=" + ",".join(issues)
+        if (self.frame_idx % self.log_every_n == 0):
+            self.get_logger().info(msg)
+        if not self.bootstrap_on_invalid:
+            return
+        # 針對性 re-detect
+        if 'left_out_of_x_range' in issues:
+            self._bootstrap_send('left')
+        if 'screw_out_of_corridor' in issues:
+            self._bootstrap_send('screw')
+        if 'baseline_zero' in issues or 'missing_points' in issues:
+            for s in ('left','right','screw'):
+                self._bootstrap_send(s)
+
     # -------------------- Main loop --------------------
     def loop_once(self):
         try:
-            # 暫停期間直接略過（例如正在 ROI 選取）
             if self._pause_processing:
                 return
 
@@ -515,7 +572,7 @@ class LShapeDetectorNode(Node):
             if not cf or not df:
                 return
 
-            # Always keep depth as depth_frame to avoid attribute error
+            # keep depth as depth_frame
             df = df.as_depth_frame()
             if not df:
                 return
@@ -539,7 +596,7 @@ class LShapeDetectorNode(Node):
             edge_full = cv2.Canny(blur_full, self.canny_low, self.canny_high)
             self.update_fps(); self.frame_idx += 1
 
-            # Ask external detector only when template missing (rate-limited)
+            # 啟動時/缺模板時才請外部偵測
             self.auto_bootstrap_templates()
 
             vis = color.copy()
@@ -557,7 +614,7 @@ class LShapeDetectorNode(Node):
                     if (self.frame_idx % self.log_every_n == 0):
                         self.get_logger().info(msg)
 
-            # If all three valid → publish TF (YPR stabilized)
+            # If all three valid → publish TF (with validation & smoothing)
             if all(self.state[k]['last_ok'] for k in ('left','right','screw')):
                 self.publish_tf(self.state['left']['last_xyz'],
                                 self.state['right']['last_xyz'],
@@ -623,6 +680,7 @@ class LShapeDetectorNode(Node):
         label = side.upper()
         if top_left is None:
             st['miss_count'] += 1; st['last_ok'] = False
+            st['last_score'] = 0.0
             return f"{label}: not found"
 
         x_f, y_f = top_left
@@ -631,6 +689,11 @@ class LShapeDetectorNode(Node):
         br = (x_i + tw, y_i + th)
         cx = x_f + float(st['tmpl_corner'][0])
         cy = y_f + float(st['tmpl_corner'][1])
+
+        # 若從磁碟載入沒有錨點→第一次高分匹配時鎖定錨點
+        if st['anchor_uv'] is None and score >= max(self.thr_upd, 0.65):
+            st['anchor_uv'] = (float(cx), float(cy))
+            st['out_count'] = 0
 
         # Jump guard
         jump_ok = True
@@ -643,9 +706,24 @@ class LShapeDetectorNode(Node):
         cv2.rectangle(vis, (x_i, y_i), br, color_box, self.lt)
         cv2.circle(vis, (int(round(cx)), int(round(cy))), 6, (0,0,255), -1)
 
+        # 2D ROI 守門：離錨點過遠，直接回報越界
+        if self.roi_guard_enable and st['anchor_uv'] is not None:
+            ax, ay = st['anchor_uv']
+            if abs(cx - ax) > self.roi_guard_margin_px or abs(cy - ay) > self.roi_guard_margin_px:
+                st['last_ok'] = False
+                st['last_score'] = float(score)
+                st['out_count'] += 1
+                if self.bootstrap_on_invalid and st['out_count'] >= self.out_invalid_limit:
+                    self._bootstrap_send(side)
+                    st['out_count'] = 0
+                return f"{label}: out_of_target_area (roi)"
+            else:
+                st['out_count'] = 0
+
         z = self.depth_median(depth_frame, cx, cy, 7)
         if z <= 0:
             st['miss_count'] += 1; st['last_ok'] = False
+            st['last_score'] = float(score)
             return f"{label}: ({int(round(cx))},{int(round(cy))})  Z=0.000m  score={score:.2f} (invalid depth)"
 
         msg = f"{label}: ({int(round(cx))},{int(round(cy))})  Z={z:.3f}m  score={score:.2f}"
@@ -656,13 +734,21 @@ class LShapeDetectorNode(Node):
             p = self.backproject(cx, cy, z)
             st['last_xyz'] = p if p is not None else None
             st['last_ok'] = p is not None
+            st['last_uv'] = (float(cx), float(cy))
+            st['last_score'] = float(score)
         else:
             st['miss_count'] += 1
             st['last_ok'] = False
+            st['last_score'] = float(score)
         return msg
 
     # -------------------- 3 points → TF (YPR stabilized) --------------------
     def publish_tf(self, vL, vR, vS):
+        ok, issues = self.validate_frame(vL, vR, vS)
+        if not ok:
+            self.report_invalid_and_maybe_bootstrap(issues)
+            return
+
         # x̂ = RIGHT→LEFT
         x = vL - vR
         nx = np.linalg.norm(x)
@@ -694,7 +780,6 @@ class LShapeDetectorNode(Node):
         self.prev_quat = q
 
         yaw_deg, pitch_deg, roll_deg = euler_zyx_from_R(Rm)
-        # 對 YPR 做最大變化量限制（防抖）
         yaw_deg, pitch_deg, roll_deg = self._smooth_ypr(yaw_deg, pitch_deg, roll_deg)
         self.last_ypr = (yaw_deg, pitch_deg, roll_deg)
 
