@@ -6,6 +6,7 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+from geometry_msgs.msg import Pose            # ← added
 import pyrealsense2 as rs
 
 # -------------------- Helpers --------------------
@@ -187,6 +188,7 @@ class LShapeDetectorNode(Node):
         # ----- ROS I/O -----
         self.info_pub = self.create_publisher(String, '/lshape_corner_info', 10)
         self.tf_pub   = self.create_publisher(String, '/lshape_tf', 10)
+        self.pose_pub = self.create_publisher(Pose, '/object_camera_pose', 10)   # ← added
         self.cmd_sub  = self.create_subscription(String, '/lshape/cmd', self.on_cmd, 10)
 
         # external bootstrap node/topic（如需改名請同步調整）
@@ -291,7 +293,7 @@ class LShapeDetectorNode(Node):
             st['out_count'] = 0
 
             self.get_logger().info(
-                f"📂 Loaded {side.upper()} PNG (corner=({st['tmpl_corner'][0]:.2f},{st['tmpl_corner'][1]:.2f}))"
+                f"📂 Loaded {side.UPPER()} PNG (corner=({st['tmpl_corner'][0]:.2f},{st['tmpl_corner'][1]:.2f}))"
             )
             return True
         except Exception as e:
@@ -357,7 +359,7 @@ class LShapeDetectorNode(Node):
         # 暫停主循環，避免 ROI 選取時卡住
         self._pause_processing = True
         try:
-            title = f"Select {side. upper()} ROI (Enter/ESC)"
+            title = f"Select {side.upper()} ROI (Enter/ESC)"   # ← fixed .upper()
             box = cv2.selectROI(title, color_bgr, fromCenter=False, showCrosshair=True)
             cv2.destroyWindow(title)
             x,y,w,h = [int(v) for v in box]
@@ -742,6 +744,19 @@ class LShapeDetectorNode(Node):
             st['last_score'] = float(score)
         return msg
 
+    # -------------------- Pose publisher --------------------
+    def publish_avg_pose(self, x, y, z, quat):
+        """Publish Pose on /object_camera_pose."""
+        msg = Pose()
+        msg.position.x = float(x)
+        msg.position.y = float(y)
+        msg.position.z = float(z)
+        msg.orientation.x = float(quat[0])
+        msg.orientation.y = float(quat[1])
+        msg.orientation.z = float(quat[2])
+        msg.orientation.w = float(quat[3])
+        self.pose_pub.publish(msg)
+
     # -------------------- 3 points → TF (YPR stabilized) --------------------
     def publish_tf(self, vL, vR, vS):
         ok, issues = self.validate_frame(vL, vR, vS)
@@ -778,6 +793,11 @@ class LShapeDetectorNode(Node):
         qx, qy, qz, qw = quat_from_R(Rm)
         q = quat_make_continuous(self.prev_quat, (qx,qy,qz,qw))
         self.prev_quat = q
+
+        # position = RIGHT（相機座標系）
+        t = vR.reshape(3,)
+        # publish Pose
+        self.publish_avg_pose(t[0], t[1], t[2], q)
 
         yaw_deg, pitch_deg, roll_deg = euler_zyx_from_R(Rm)
         yaw_deg, pitch_deg, roll_deg = self._smooth_ypr(yaw_deg, pitch_deg, roll_deg)

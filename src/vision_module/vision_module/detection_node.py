@@ -178,8 +178,6 @@ class RealSenseVision(Node):
 
     def publish_avg_pose(self, x, y, z, quat):
         msg = Pose()
-        # msg.header.stamp = self.get_clock().now().to_msg()
-        # msg.header.frame_id = 'camera_link'
         msg.position.x = x
         msg.position.y = y
         msg.position.z = z
